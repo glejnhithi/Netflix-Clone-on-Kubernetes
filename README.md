@@ -2,9 +2,9 @@ Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
 ### **Phase 1: Initial Setup and Deployment**
 
-**Step 1: Launch EC2 (Ubuntu 22.04):**
+**Step 1: Launch EC2 (Ubuntu 22.04):** (OR AZURE VM)
 
-- Provision an EC2 instance on AWS with Ubuntu 22.04.
+- Provision an EC2 instance on AWS with Ubuntu 22.04.(OR AZURE VM)
 - Connect to the instance using SSH.
 
 **Step 2: Clone the Code:**
@@ -13,7 +13,7 @@ Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 - Clone your application's code repository onto the EC2 instance:
     
     ```bash
-    git clone https://github.com/Aakibgithuber/Deploy-Netflix-Clone-on-Kubernetes.git
+    https://github.com/glejnhithi/Netflix-Clone-on-Kubernetes.git
     ```
     
 
@@ -180,7 +180,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/Aakibgithuber/Deploy-Netflix-Clone-on-Kubernetes.git'
+                git branch: 'main', url: 'https://github.com/glejnhithi/Netflix-Clone-on-Kubernetes.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -270,7 +270,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/Aakibgithuber/Deploy-Netflix-Clone-on-Kubernetes.git'
+                git branch: 'main', url: 'https://github.com/glejnhithi/Netflix-Clone-on-Kubernetes.git'
             }
         }
         stage("Sonarqube Analysis "){
