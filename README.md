@@ -307,10 +307,10 @@ pipeline{
         stage("Docker Build & Push"){
             steps{
                 script{
-                   withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
-                       sh "docker tag netflix aakibkhan1212/netflix:latest "
-                       sh "docker push aakibkhan1212/netflix:latest "
+		   dockerImage = docker.build("glejnhithi/netflix:latest")
+                   withDockerRegistry([credentialsId: 'dockerio', url: '']){
+		   dockerImage.push()  
+
                     }
                 }
             }
@@ -322,7 +322,7 @@ pipeline{
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name netflix -p 8081:80 nasi101/netflix:latest'
+                sh 'docker run -d --name netflix -p 8081:80 glejnhithi/netflix:latest'
             }
         }
     }
